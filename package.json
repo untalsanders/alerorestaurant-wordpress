@@ -1,0 +1,15 @@
+{
+  "name": "alerorestaurant",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wp-env start",
+    "destroy": "wp-env destroy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/env": "9.7.0"
+  }
+}
