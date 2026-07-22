@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
-  config.vm.box.architecture = "amd64"
+  config.vm.box_version = "20241002.0.0"
   config.vm.hostname = "alero-websrv"
   config.vm.box_check_update = false
   config.vm.network "private_network", ip: "192.168.56.10"
@@ -22,6 +22,6 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", path: "./scripts/bootstrap.sh"
-  config.vm.provision "file", source: "./etc/nginx/wordpress", destination: "/home/vagrant/wordpress"
+  config.vm.provision "file", source: "./etc/nginx/wordpress.conf", destination: "/home/vagrant/wordpress"
   config.vm.provision "shell", path: "./scripts/install.sh"
 end
