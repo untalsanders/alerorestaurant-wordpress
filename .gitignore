@@ -1,3 +1,13 @@
 node_modules/
+
+# .DS_Store files
+.DS_Store
+
+# PHP
 /vendor/
+
+# Vagrant Files
 .vagrant/
+
+# VirtualBox Disk
+*.vmdk

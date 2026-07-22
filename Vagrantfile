@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
     vb.name = "alero-websrv"
     vb.memory = "2048" # 2GB
 	vb.cpus = 1
+
+	# Attach Disk
     file_to_disk = "disk01.vmdk"
       unless File.exist?(file_to_disk)
         vb.customize ["createmedium", "disk", "--filename", "disk01.vmdk", "--format", "vmdk", "--size", 1024 * 1]

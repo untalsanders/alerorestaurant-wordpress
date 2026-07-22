@@ -11,7 +11,20 @@ sudo mkdir /storage_data
 echo "# Mount Additional Disk" | sudo tee -a /etc/fstab && echo "/dev/storage_vg/storage_data /storage_data ext4 defaults 0 0" | sudo tee -a /etc/fstab
 sudo mount -a
 
+# Keyboard Config
+sudo add-apt-repository universe
+sudo apt update
+# Instalar y configurar el paquete para aplicar el mapa de teclado
+sudo apt install -y console-data keyboard-configuration
+# Establecer la distribución a Español Latinoamericano
+sudo loadkeys la-latin1
+# Escribir la configuraciónpara que persista en el sistema
+sudo dpkg-reconfigure -f noninteractive keyboard-configuration
+
 # Install software
-sudo apt update && sudo apt install -y nginx mariadb-server mariadb-common php-fpm php-mysql php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip expect unzip
+sudo apt update && sudo apt install -y nginx mariadb-server mariadb-common \
+	php-fpm php-mysql php-curl php-gd php-intl php-mbstring php-soap php-xml \
+	php-xmlrpc php-zip expect unzip
+
 wget https://wordpress.org/latest.tar.gz
 sudo tar -xvf latest.tar.gz -C /var/www/
